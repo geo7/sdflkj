@@ -4,13 +4,14 @@ Adding module docstring to shut pylint up.
 This is a docstring which does nothing other than please a linter.
 """
 
+from . import util
+
 
 def main() -> int:
     """Main function for pylint."""
-    print("this is something")
-    print("fail black")
-    x_for_pylint = 12
-    del x_for_pylint
+    print("using util func")
+    print(util.add(1, 2))
+
     return 0
 
 
