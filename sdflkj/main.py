@@ -11,6 +11,7 @@ def main() -> int:
     """Main function for pylint."""
     print("using util func")
     print(util.add(1, 2))
+    print(util.add(2, 2))
 
     return 0
 
