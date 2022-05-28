@@ -1,5 +1,6 @@
 def main() -> int:
     print("this is something")
+    print('fail black')
     return 0
 
 
