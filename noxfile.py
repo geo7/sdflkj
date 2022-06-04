@@ -46,6 +46,8 @@ def docs(session: Session) -> None:
     builddir = Path("docs", "_build")
     if builddir.exists():
         shutil.rmtree(builddir)
+    else:
+        builddir.mkdir(parents=True)
 
     session.install("-r", "docs/requirements.txt")
 
