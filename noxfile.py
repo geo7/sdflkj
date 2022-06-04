@@ -35,6 +35,7 @@ def publish_release(session: Session) -> None:
 
 nox.options.sessions = ["linkcheck"]
 
+
 @nox.session
 def docs(session: Session) -> None:
     """Build the documentation."""
@@ -78,7 +79,7 @@ def linkcheck(session: Session) -> None:
     session.install("-r", "docs/requirements.txt")
 
     _args = " -- ".join(args)
-    print('running with : ', _args)
+    print("running with : ", _args)
 
     session.run("sphinx-build", *args)
 
