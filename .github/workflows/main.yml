@@ -41,6 +41,12 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
+      - name: Install pre-commit
+        id: install-pre-commit
+        run: |
+          pip install --constraint=.github/workflows/constraints.txt pip
+          pip install --constraint=.github/workflows/constraints.txt pre-commit
+
       - name: Compute pre-commit cache key
         id: pre-commit-cache
         shell: python
