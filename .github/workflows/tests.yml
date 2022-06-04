@@ -37,7 +37,7 @@ jobs:
           git config --local user.name "GitHub Action"
           git config --local user.email "action@github.com"
           git add .
-          git commit --message="Initial import"
+          git commit --allow-empty --message="Initial import"
         working-directory: sdflkj
       - name: Create git repository (Windows)
         if: matrix.os == 'windows-latest'
