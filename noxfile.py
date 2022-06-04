@@ -59,7 +59,14 @@ def docs(session: Session) -> None:
 @nox.session
 def linkcheck(session: Session) -> None:
     """Build the documentation."""
-    args = session.posargs or ["-b", "linkcheck", "-W", "--keep-going", "docs", "docs/_build"]
+    args = session.posargs or [
+        "-b",
+        "linkcheck",
+        "-W",
+        "--keep-going",
+        "docs",
+        "docs/_build",
+    ]
 
     builddir = Path("docs", "_build")
     if builddir.exists():
