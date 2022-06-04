@@ -52,7 +52,6 @@ jobs:
           digest = hashlib.sha256(payload).hexdigest()
           result = "${{ runner.os }}-{}-{}-pre-commit".format(python, digest[:8])
           print("::set-output name=result::{}".format(result))
-          print("::set-output checking_this::this_is_just_a_test")
 
       - name: Test set-output thing
         run: |
@@ -72,6 +71,7 @@ jobs:
           python -m pip install flake8 pytest pylint
           # I should break these out into dev/test etc really.
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
       - name: Lint with flake8
         run: |
           # stop the build if there are Python syntax errors or undefined names
