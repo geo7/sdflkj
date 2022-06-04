@@ -9,6 +9,7 @@ python = "^3.9"
 pandas = "^1.4.2"
 pytest = "^7.1.2"
 pre-commit = "^2.19.0"
+nox = "^2022.1.7"
 
 [tool.poetry.dev-dependencies]
 
