@@ -53,8 +53,6 @@ jobs:
           result = "${{ runner.os }}-{}-{}-pre-commit".format(python, digest[:8])
           print("::set-output name=result::{}".format(result))
           print("::set-output checking_this::this_is_just_a_test")
-          print("SOMETHING?? ::set-output name=result::{}".format(result))
-          print('that job is finished')
 
       - name: Test set-output thing
         run: |
@@ -67,8 +65,6 @@ jobs:
           key: ${{ steps.pre-commit-cache.outputs.result }}-${{ hashFiles('.pre-commit-config.yaml') }}
           restore-keys: |
             ${{ steps.pre-commit-cache.outputs.result }}-
-
-
 
       - name: "Install dependencies"
         run: |
