@@ -53,17 +53,14 @@ jobs:
           result = "${{ runner.os }}-{}-{}-pre-commit".format(python, digest[:8])
           print("::set-output name=result::{}".format(result))
 
-      - name: Test set-output thing
-        run: |
-          echo ${{ steps.pre-commit-cache.outputs.checking_this }}
-
-      - name: Restore pre-commit cache
-        uses: actions/cache@v2
+      - uses: actions/cache@v3
         with:
           path: ~/.cache/pre-commit
-          key: ${{ steps.pre-commit-cache.outputs.result }}-${{ hashFiles('.pre-commit-config.yaml') }}
+          key: ${{ steps.cache_key_prefix.outputs.result }}-${{ hashFiles('.pre-commit-config.yaml') }}
           restore-keys: |
             ${{ steps.pre-commit-cache.outputs.result }}-
+      - run: pre-commit run --all-files --show-diff-on-failure --color=always
+
 
       - name: "Install dependencies"
         run: |
